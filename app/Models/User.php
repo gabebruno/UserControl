@@ -20,6 +20,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'phone',
+        'cpf',
+        'permission_id'
     ];
 
     /**
@@ -40,4 +44,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function permisions()
+    {
+        return $this->hasOne('App\Models\Permissions', 'permission_id');
+    }
+
+    public function logs()
+    {
+        return $this->hasMany('App\Models\Logs', 'email', 'email');
+    }
 }
