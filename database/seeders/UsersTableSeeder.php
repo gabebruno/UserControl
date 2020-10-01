@@ -20,8 +20,8 @@ class UsersTableSeeder extends Seeder
             'phone' => '999199555',
             'address' => 'Florianópolis que me aguarde!',
             'cpf' => '01745738045',
-            'permission_id' => 2,
-            'password' => bcrypt('123456')
+            'permission' => 2,
+            'password' => bcrypt('senha123')
         ]);
         DB::table('users')->insert([
             'name' => 'Charles Xavier',
@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
             'phone' => '999199555',
             'address' => 'Escola para Jovens Super Dotados, sn',
             'cpf' => '63395667073',
-            'permission_id' => 2,
+            'permission' => 2,
             'password' => bcrypt('senha123')
         ]);
         DB::table('users')->insert([
@@ -38,7 +38,7 @@ class UsersTableSeeder extends Seeder
             'phone' => '991119111',
             'address' => 'Largo Grimmauld, 12, London',
             'cpf' => '06120811095',
-            'permission_id' => 1,
+            'permission' => 1,
             'password' => bcrypt('senha123')
         ]);
         DB::table('users')->insert([
@@ -47,7 +47,7 @@ class UsersTableSeeder extends Seeder
             'phone' => '999221443',
             'address' => 'R dos Alfeneiros, n 4, Curitiba - PR',
             'cpf' => '10438176030',
-            'permission_id' => 1,
+            'permission' => 1,
             'password' => bcrypt('senha123')
         ]);
         DB::table('users')->insert([
@@ -56,7 +56,7 @@ class UsersTableSeeder extends Seeder
             'phone' => '991119111',
             'address' => 'Rua dos Ciborgues, n 25, China',
             'cpf' => '94255452008',
-            'permission_id' => 1,
+            'permission' => 1,
             'password' => bcrypt('senha123')
         ]);
         DB::table('users')->insert([
@@ -65,7 +65,7 @@ class UsersTableSeeder extends Seeder
             'phone' => '991522565',
             'address' => 'R dos Encanadores, n 9, Juazeiro do Norte - MG',
             'cpf' => '30683905082',
-            'permission_id' => 1,
+            'permission' => 1,
             'password' => bcrypt('senha123')
         ]);
         DB::table('users')->insert([
@@ -74,7 +74,7 @@ class UsersTableSeeder extends Seeder
             'phone' => '991689898',
             'address' => 'R Saitama, n 1, São José dos Campos - SP',
             'cpf' => '17339042040',
-            'permission_id' => 1,
+            'permission' => 1,
             'password' => bcrypt('senha123')
         ]);
     }

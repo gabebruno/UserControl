@@ -21,12 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('phone');
             $table->string('cpf')->unique();
             $table->string('password');
-            $table->integer('permission_id');
+            $table->integer('permission');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
-
-            $table->foreign('permission_id')->references('id')->on('permissions');
         });
     }
 
