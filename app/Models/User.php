@@ -23,7 +23,8 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'address',
         'phone',
-        'permission'
+        'permission',
+        'cpf'
     ];
 
     /**
@@ -63,5 +64,20 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function accessLog()
+    {
+        dd(auth()->user()->email);
+
+        return $this->logs()->create([
+           "login" => auth()->user()->email,
+            "description" => 'User logged in!',
+        ]);
+    }
+
+    public function logs()
+    {
+        return $this->hasMany(Logs::class);
     }
 }

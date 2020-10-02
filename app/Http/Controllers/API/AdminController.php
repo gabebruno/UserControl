@@ -33,7 +33,7 @@ class AdminController extends Controller
     {
         $user = new User;
         $user->fill($request->all());
-        return $user->create() ? true : false;
+        return $user->save();
     }
 
     /**
@@ -42,10 +42,9 @@ class AdminController extends Controller
      * @param int $id
      * @return JsonResponse
      */
-    public function show($id = null)
+    public function show($id)
     {
-        $LoggedUser = Auth::user();
-        $users = $id == null ? User::find($id) : User::find($LoggedUser['id']);
+        $users = User::find($id);
         return response()->json($users);
     }
 
@@ -60,19 +59,18 @@ class AdminController extends Controller
     {
         $user = User::find($id);
         $user->fill($request->all());
-        return $user->save() ? true : false;
+        return $user->save();
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return int
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        return $user->delete() ? true : false;
+        return User::destroy($id);
     }
 
 }

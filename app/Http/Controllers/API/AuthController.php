@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Events\UserLoggedIn;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\LogsController;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Event;
 
 class AuthController extends Controller
 {
@@ -22,6 +25,7 @@ class AuthController extends Controller
         if (!$token = auth('api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized Access'], 401);
         }
+
         return $this->respondWithToken($token);
     }
 

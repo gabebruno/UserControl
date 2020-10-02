@@ -15,7 +15,8 @@ class LogsTableSeeder extends Seeder
     public function run()
     {
         DB::table('logs')->insert([
-            'email' => 'admin@seventh.com',
+            'user_id' => '1',
+            'login' => 'admin@seventh.com',
             'description' => 'Realizado criação e implantação de API de cadastro e controle de usuários da Seventh.',
         ]);
     }

@@ -74,7 +74,7 @@ class UsersTableSeeder extends Seeder
             'phone' => '991689898',
             'address' => 'R Saitama, n 1, São José dos Campos - SP',
             'cpf' => '17339042040',
-            'permission' => 1,
+            'permission' => 2,
             'password' => bcrypt('senha123')
         ]);
     }

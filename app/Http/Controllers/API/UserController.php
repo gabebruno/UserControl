@@ -19,8 +19,8 @@ class UserController extends Controller
      */
     public function show()
     {
-        $user = Auth::user();
-        $users = User::find($user['id']);
+        $user = auth()->user();
+        $users = User::find($user->id);
         return response()->json($users);
     }
 
@@ -31,11 +31,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $user = User::find($id);
+        $user = auth()->user();
         $user->fill($request->except('permission'));
-        return $user->save() ? true : false;
+        return $user->save();
 
     }
 
