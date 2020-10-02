@@ -17,9 +17,8 @@ class UserController extends Controller
      *
      * @return JsonResponse
      */
-    public function show()
+    public function show($id)
     {
-        $user = auth()->user();
         $users = User::find($user->id);
         return response()->json($users);
     }
