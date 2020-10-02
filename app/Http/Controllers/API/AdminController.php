@@ -27,13 +27,13 @@ class AdminController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function store(Request $request)
     {
         $user = new User;
         $user->fill($request->all());
-        return $user->save();
+        return response()->json($user->save());
     }
 
     /**
