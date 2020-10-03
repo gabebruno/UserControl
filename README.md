@@ -1,61 +1,94 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## UserControl
+ 
+This is an Back-end API for User Registration.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+You can create, list, update and show users, with a JSON response.
 
-## About Laravel
+An PHP Laravel 8 API, with JWT tokenizer to keep data safe from invasors and with MVC structure.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The AdminController is responsable for any function protected from another logged users, for example, delete and create users, as same a list of all users registered and logs.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+UserController contains another functions less sensitive, like your own data and update your register.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+For example, has a admin user on database with email "professorx@seventh.com" with pass "senha123" and a common user register with email "harry@seventh.com" with same pass "senha123".
 
-## Learning Laravel
+So, this is it... 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Thanks people!!!
+ 
+## Technology 
+ 
+Here are the technologies used in this project.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* Composer (For dependencies)
+* Laravel 8
+* SQLite3 
+* JWT Authentication
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Getting started
 
-### Premium Partners
+* First you need clone this repository!
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+* To install dependencies:
+>   $ composer install
 
-## Contributing
+* .Env configuration:
+>   Rename .env.example to .env and change the DB_DATABASE to your own absolute path to userscontrol.sqlite.
+>   Somenthing like this: "C:/Projeto/UserControl/database/userscontrol.sqlite"
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+* Database Configuration
+>   The .sqlite file is included with repository, on "/database" direcotry
 
-## Code of Conduct
+* To run the project:
+>   $ php artisan serve
+ 
+## How to use
+ 
+    The DB was previously created and with some data, but you can run [$ php artisan migrate:fresh] on you terminal to recreate the tables and
+    [$ php artisan db:seed] to populate with some data.
+    
+   **The routes defined are:**
+    
+    - api/auth/login         -> POST - This route receive an email and a password to login.
+    
+   **Routes for any logged user:**
+   
+    - api/user/me            -> GET - This route get all logged user data.
+    - api/auth/logout        -> POST - Logout user.
+    
+   **Routes for admin (Admin is defined by "permission = 1" on table users):**
+    
+    - api/user/{id}          -> GET - This route is used to get all data from any user by id.
+    - api/user/update/{id}   -> PUT - Update a user by your id.
+    - api/user/delete/{id}   -> DELETE - Destroy users by id parameter.
+    - api/user/store         -> POST - Create new user.
+    - api/user               -> GET - List all users in database.
+    - api/logs               -> GET - List all logs registered on database.
+ 
+   **The parameters for new users are:**
+      
+        'name'           -> string
+        'email'          -> unique, string
+        'phone'          -> string
+        'address'        -> string
+        'cpf'            -> unique, string
+        'permission'     -> int
+        'password'       -> bcrypt('string')
+    
+   _Phone and CPF are just a string, without any verification in this first version._
+ 
+## Links
+ 
+  - Link of deployed application: _Maybe soon_
+  - Repository: https://github.com/gabebruno/UserControl 
+ 
+## Versioning
+ 
+1.0.0.0
+ 
+ 
+## Authors
+ 
+* **Gabriel Bruno Almeida**: @gabebruno (https://github.com/gabebruno)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
