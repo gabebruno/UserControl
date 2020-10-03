@@ -1,16 +1,16 @@
 ## UserControl
  
-This is an Back-end API for User Registration.
+This is a Back-end API for User Registration.
 
 You can create, list, update and show users, with a JSON response.
 
-An PHP Laravel 8 API, with JWT tokenizer to keep data safe from invasors and with MVC structure.
+A PHP Laravel 8 API, with JWT tokenizer to keep data safe from invasors and with MVC structure.
 
-The AdminController is responsable for any function protected from another logged users, for example, delete and create users, as same a list of all users registered and logs.
+The AdminController is responsable for any function protected from another logged users, for example, delete and create users, as same a list of all users registered and all logs.
 
-UserController contains another functions less sensitive, like your own data and update your register.
+UserController contains another functions less sensitive, like your own data and update your own register.
 
-For example, has a admin user on database with email "professorx@seventh.com" with pass "senha123" and a common user register with email "harry@seventh.com" with same pass "senha123".
+For example, has a admin user on database with email "professorx@user.com" with pass "senha123" and a common user register with email "genos@user.com" with same pass "senha123".
 
 So, this is it... 
 
@@ -23,7 +23,7 @@ Here are the technologies used in this project.
 * Composer (For dependencies)
 * Laravel 8
 * SQLite3 
-* JWT Authentication
+* JWT Authentication 1.0.1
 
 
 ## Getting started
@@ -34,14 +34,17 @@ Here are the technologies used in this project.
 >   $ composer install
 
 * .Env configuration:
->   Rename .env.example to .env and change the DB_DATABASE to your own absolute path to userscontrol.sqlite.
->   Somenthing like this: "C:/Projeto/UserControl/database/userscontrol.sqlite"
+>   Rename .env.example to .env.
 
 * Database Configuration
 >   The .sqlite file is included with repository, on "/database" direcotry
 
-* To run the project:
+* Run the project:
 >   $ php artisan serve
+
+
+* Or... to consume this API just use the following heroku link with the routes defined bellow:
+>   https://usercontrolgabebruno.herokuapp.com/
  
 ## How to use
  
@@ -60,7 +63,7 @@ Here are the technologies used in this project.
    **Routes for admin (Admin is defined by "permission = 1" on table users):**
     
     - api/user/{id}          -> GET - This route is used to get all data from any user by id.
-    - api/user/update/{id}   -> PUT - Update a user by your id.
+    - api/user/update/{id}   -> PUT - Update an user by your id.
     - api/user/delete/{id}   -> DELETE - Destroy users by id parameter.
     - api/user/store         -> POST - Create new user.
     - api/user               -> GET - List all users in database.
@@ -76,11 +79,11 @@ Here are the technologies used in this project.
         'permission'     -> int
         'password'       -> bcrypt('string')
     
-   _Phone and CPF are just a string, without any verification in this first version._
+   _The fileds are just a string, without any verification in this first version._
  
 ## Links
  
-  - Link of deployed application: _Maybe soon_
+  - Link of deployed API: https://usercontrolgabebruno.herokuapp.com
   - Repository: https://github.com/gabebruno/UserControl 
  
 ## Versioning
