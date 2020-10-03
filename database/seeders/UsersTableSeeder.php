@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'Administrador',
-            'email' => 'admin@seventh.com',
+            'email' => 'admin@user.com',
             'phone' => '999199555',
             'address' => 'Florianópolis que me aguarde!',
             'cpf' => '01745738045',
@@ -25,7 +25,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'name' => 'Charles Xavier',
-            'email' => 'professorx@seventh.com',
+            'email' => 'professorx@user.com',
             'phone' => '999199555',
             'address' => 'Escola para Jovens Super Dotados, sn',
             'cpf' => '63395667073',
@@ -33,17 +33,8 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('senha123')
         ]);
         DB::table('users')->insert([
-            'name' => 'Hermione Granger',
-            'email' => 'hermione@seventh.com',
-            'phone' => '991119111',
-            'address' => 'Largo Grimmauld, 12, London',
-            'cpf' => '06120811095',
-            'permission' => 1,
-            'password' => bcrypt('senha123')
-        ]);
-        DB::table('users')->insert([
             'name' => 'Harry Potter',
-            'email' => 'harry@seventh.com',
+            'email' => 'harry@user.com',
             'phone' => '999221443',
             'address' => 'R dos Alfeneiros, n 4, Curitiba - PR',
             'cpf' => '10438176030',
@@ -61,7 +52,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'name' => 'Mario Bros',
-            'email' => 'mario@seventh.com',
+            'email' => 'mario@user.com',
             'phone' => '991522565',
             'address' => 'R dos Encanadores, n 9, Juazeiro do Norte - MG',
             'cpf' => '30683905082',
@@ -70,7 +61,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'name' => 'Saitama',
-            'email' => 'saitama@seventh.com',
+            'email' => 'saitama@user.com',
             'phone' => '991689898',
             'address' => 'R Saitama, n 1, São José dos Campos - SP',
             'cpf' => '17339042040',
