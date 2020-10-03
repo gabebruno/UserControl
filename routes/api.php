@@ -22,21 +22,6 @@ use Illuminate\Support\Facades\Auth;
 
 Route::post('auth/login', [AuthController::class, 'login']);
 
-//Route::group(['middleware' => 'authorized'], function () {
-//
-//        Route::group(['middleware' => 'admin'], function () {
-//            Route::get('logs', [LogsController::class, 'index']);
-//            Route::get('users', [MainController::class, 'index']);
-//            Route::post('user/store', [MainController::class, 'store']);
-//            Route::delete('user/delete/{id}', [MainController::class, 'destroy']);
-//        });
-//
-//        Route::put('user/update/{id?}', [MainController::class, 'update']);
-//        Route::get('user', [AuthController::class, 'me']);
-//        Route::get('user/{id}', [MainController::class, 'show']);
-//        Route::post('auth/logout', [AuthController::class, 'logout']);
-//});
-
 Route::group(['middleware' => 'authorized'], function () {
 
     Route::middleware('admin')->namespace('Admin')->group(function () {
