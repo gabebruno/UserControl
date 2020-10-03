@@ -20,7 +20,7 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         'App\Events\UserLoggedIn' => [
-            'App\Handlers\UserLoginRegister'
+            'App\Handlers\UserEventSubscriber'
         ]
     ];
 

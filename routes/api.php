@@ -22,18 +22,34 @@ use Illuminate\Support\Facades\Auth;
 
 Route::post('auth/login', [AuthController::class, 'login']);
 
+//Route::group(['middleware' => 'authorized'], function () {
+//
+//        Route::group(['middleware' => 'admin'], function () {
+//            Route::get('logs', [LogsController::class, 'index']);
+//            Route::get('users', [MainController::class, 'index']);
+//            Route::post('user/store', [MainController::class, 'store']);
+//            Route::delete('user/delete/{id}', [MainController::class, 'destroy']);
+//        });
+//
+//        Route::put('user/update/{id?}', [MainController::class, 'update']);
+//        Route::get('user', [AuthController::class, 'me']);
+//        Route::get('user/{id}', [MainController::class, 'show']);
+//        Route::post('auth/logout', [AuthController::class, 'logout']);
+//});
+
 Route::group(['middleware' => 'authorized'], function () {
 
-        Route::group(['middleware' => 'admin'], function () {
-            Route::get('logs', [LogsController::class, 'index']);
-            Route::get('users', [MainController::class, 'index']);
-            Route::post('user/store', [MainController::class, 'store']);
-            Route::delete('user/delete/{id}', [MainController::class, 'destroy']);
-        });
+    Route::middleware('admin')->namespace('Admin')->group(function () {
+        Route::get('logs', [LogsController::class, 'index']);
+        Route::get('user', [AdminController::class, 'index']);
+        Route::post('user/store', [AdminController::class, 'store']);
+        Route::put('user/update/{id}', [AdminController::class, 'update'])->where('id', '[0-9]+');
+        Route::delete('user/delete/{id}', [AdminController::class, 'destroy'])->where('id', '[0-9]+');
+        Route::get('user/{id}', [AdminController::class, 'show'])->where('id', '[0-9]+');
+    });
 
-        Route::put('user/update/{id?}', [MainController::class, 'update']);
-        Route::get('user', [AuthController::class, 'me']);
-        Route::get('user/{id}', [MainController::class, 'show']);
-        Route::post('auth/logout', [AuthController::class, 'logout']);
+    Route::get('user/me', [AuthController::class, 'me']);
+    Route::put('user/update', [UserController::class, 'update']);
+    Route::post('auth/logout', [AuthController::class, 'logout']);
 });
 

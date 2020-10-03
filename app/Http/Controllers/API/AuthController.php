@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Events\UserLoggedIn;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\LogsController;
 use Illuminate\Http\JsonResponse;

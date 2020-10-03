@@ -15,7 +15,7 @@ class UserEventSubscriber extends Event
     public function fireLogAccess($event)
     {
         // Registra o acesso do usuário logado
-        dd($event);
+        //dd($event);
         auth()->user->accessLog();
     }
 
