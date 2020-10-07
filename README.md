@@ -58,6 +58,7 @@ Here are the technologies used in this project.
    **Routes for any logged user:**
    
     - api/user/me            -> GET - This route get all logged user data.
+    - api/user/update        -> PUT - Update your own profile.
     - api/auth/logout        -> POST - Logout user.
     
    **Routes for admin (Admin is defined by "permission = 1" on table users):**
