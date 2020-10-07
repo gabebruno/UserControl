@@ -573,6 +573,7 @@
                                         logged user:</strong></p>
                                 <pre>
     - api/user/me            GET - Get you own user data.
+    - api/user/update        PUT - Update your own profile.
     - api/auth/logout        POST - Logout user.
                                 </pre>
                                 <p class="has-line-data" data-line-start="62" data-line-end="63"><strong>Routes for admin
